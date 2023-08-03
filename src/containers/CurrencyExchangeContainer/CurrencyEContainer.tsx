@@ -9,6 +9,7 @@ import {
     CurrencyReducersTypes
 } from '../../redux/actions';
 import { connect, ConnectedProps } from 'react-redux';
+
 const CurrencyEContainer: React.FC<TProps> = props => {
 
     const {
@@ -85,7 +86,6 @@ const mapStateToProps = ( { currency } : {currency: CurrencyState} ): CurrencySt
     };
 };
 
-// @ts-ignore
 const mapDispatchToProps = (dispatch: Dispatch<CurrencyReducersTypes>) : any => {
     return {
         setCurrencyAmount(amountOfBYN: string, amountOfCurrency: string) {
@@ -100,7 +100,6 @@ const mapDispatchToProps = (dispatch: Dispatch<CurrencyReducersTypes>) : any => 
     };
 };
 
-// @ts-ignore
 const connector = connect(mapStateToProps, mapDispatchToProps);
 
 type TProps = ConnectedProps<typeof connector>;
