@@ -5,11 +5,10 @@ import { Dispatch } from 'redux';
 import {
     ChangeActionAC,
     ChangeCurrencyFieldAC,
-    СhangeCurrentCurrencyAC,
+    ChangeCurrentCurrencyAC,
     CurrencyReducersTypes
 } from '../../redux/actions';
 import { connect, ConnectedProps } from 'react-redux';
-
 const CurrencyEContainer: React.FC<TProps> = props => {
 
     const {
@@ -96,7 +95,7 @@ const mapDispatchToProps = (dispatch: Dispatch<CurrencyReducersTypes>) : any => 
             dispatch(ChangeActionAC(isBuying));
         },
         changeCurrency(currency: string) {
-            dispatch(СhangeCurrentCurrencyAC(currency));
+            dispatch(ChangeCurrentCurrencyAC(currency));
         },
     };
 };
