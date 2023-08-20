@@ -55,6 +55,31 @@ function makeCounter() {
 // reset: установить счетчик в 0;
 // set: установить счетчик в заданное значение;
 
+function makeCounter1(startValue1: number) {
+    let count = startValue1 || 0;
+
+    return {
+        increase: function() {
+            count++;
+            return count;
+        },
+        decrease: function() {
+            count--;
+            return count;
+        },
+        reset: function() {
+            count = 0;
+            return count;
+        },
+        set: function(value: number) {
+            count = value;
+            return count;
+        }
+    };
+}
+
+const counter1 = makeCounter1(5);
+
 // Task 04*
 // Реализовать функцию superSum которая принимает число в качестве аргумента, которое указывает на количество слагаемых
 // и что бы корректно работали следующие вызовы:
