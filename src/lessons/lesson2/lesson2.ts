@@ -90,6 +90,32 @@ const counter1 = makeCounter1(5);
 // 5) superSum(3)(2,5)(3) //10
 // 6) superSum(3)(2,5)(3,9) //10
 
+function superSum(n: number) {
+    if (n === 0) return 0;
+
+    return function helper(...args: number[]) {
+        if (args.length >= n) {
+            args.length = n;
+            return args.reduce((acc, number) => acc + number);
+        } else {
+            return (...nextArgs: number[]) => helper(...args, ...nextArgs);
+        }
+    };
+}
+// @ts-ignore
+console.log(superSum(0)) //0
+// @ts-ignore
+console.log(superSum(3)(2)(5)(3)) //10
+// @ts-ignore
+console.log(superSum(3)(2)(5,3)) //10
+// @ts-ignore
+console.log(superSum(3)(2,5,3)) //10
+// @ts-ignore
+console.log(superSum(3)(2,5)(3)) //10
+// @ts-ignore
+console.log(superSum(3)(2,5)(3,9)) //10
+
+
 // P.S. типизируйте только аргументы, а при вызове функции используйте @ts-ignore
 
 // Task 05
