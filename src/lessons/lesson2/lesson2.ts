@@ -123,7 +123,7 @@ console.log(superSum(3)(2, 5)(3, 9)) //10
 // Task 05
 // решить все задачи по рекурсии которые даны в конце статьи https://learn.javascript.ru/recursion
 
-//first task:
+//task 5.1:
 const sumTo = (n: number) => { //for
     let acc = 0
     for (let i = 1; i <= n; i++) {
@@ -147,7 +147,15 @@ const sumToArithmeticProgression = (n: number): number => {
 };
 console.log(sumToArithmeticProgression(100))
 
-
+//task 5.2:
+const factorial = (n: number): number=> {
+    if(n > 1) {
+        return n * factorial(n-1)!
+    } else {
+        return 1
+    }
+}
+console.log(factorial(5))
 
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
