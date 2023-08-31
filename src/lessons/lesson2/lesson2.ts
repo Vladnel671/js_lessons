@@ -24,7 +24,7 @@ console.log('lesson 2');
 // Task 01
 // Реализовать функцию sum которая суммирует 2 числа следующим образом sum(3)(6) === 9
 function sum(a: number) {
-    return function(b: number) {
+    return function (b: number) {
         return a + b;
     };
 }
@@ -35,17 +35,18 @@ console.log(sum(3)(6));
 function makeCounter() {
     let count = 0;
 
-    return function() {
+    return function () {
         count++;
         return count;
     };
 }
- const counter = makeCounter();
- counter(); // 1
- counter(); // 2
- const counter2 = makeCounter();
- counter2(); // 1
- counter(); // 3
+
+const counter = makeCounter();
+counter(); // 1
+counter(); // 2
+const counter2 = makeCounter();
+counter2(); // 1
+counter(); // 3
 
 // Task 03
 // Переписать функцию из Task 02 так, что бы она принимала число в качестве аргумента и это число было стартовым значением счетчика
@@ -59,19 +60,19 @@ function makeCounter1(startValue1: number) {
     let count = startValue1 || 0;
 
     return {
-        increase: function() {
+        increase: function () {
             count++;
             return count;
         },
-        decrease: function() {
+        decrease: function () {
             count--;
             return count;
         },
-        reset: function() {
+        reset: function () {
             count = 0;
             return count;
         },
-        set: function(value: number) {
+        set: function (value: number) {
             count = value;
             return count;
         }
@@ -79,7 +80,7 @@ function makeCounter1(startValue1: number) {
 }
 
 const counter1 = makeCounter1(5);
-
+counter1.decrease()
 // Task 04*
 // Реализовать функцию superSum которая принимает число в качестве аргумента, которое указывает на количество слагаемых
 // и что бы корректно работали следующие вызовы:
@@ -102,18 +103,19 @@ function superSum(n: number) {
         }
     };
 }
+
 // @ts-ignore
 console.log(superSum(0)) //0
 // @ts-ignore
 console.log(superSum(3)(2)(5)(3)) //10
 // @ts-ignore
-console.log(superSum(3)(2)(5,3)) //10
+console.log(superSum(3)(2)(5, 3)) //10
 // @ts-ignore
-console.log(superSum(3)(2,5,3)) //10
+console.log(superSum(3)(2, 5, 3)) //10
 // @ts-ignore
-console.log(superSum(3)(2,5)(3)) //10
+console.log(superSum(3)(2, 5)(3)) //10
 // @ts-ignore
-console.log(superSum(3)(2,5)(3,9)) //10
+console.log(superSum(3)(2, 5)(3, 9)) //10
 
 
 // P.S. типизируйте только аргументы, а при вызове функции используйте @ts-ignore
@@ -121,8 +123,35 @@ console.log(superSum(3)(2,5)(3,9)) //10
 // Task 05
 // решить все задачи по рекурсии которые даны в конце статьи https://learn.javascript.ru/recursion
 
+//first task:
+const sumTo = (n: number) => { //for
+    let acc = 0
+    for (let i = 1; i <= n; i++) {
+        acc += i
+    }
+    return acc
+}
+sumTo(10)
+
+const sumToRecursion = (n: number): number => {
+    if (n > 1) {
+        return n + sumToRecursion(n - 1)
+    } else {
+        return 1
+    }
+}
+console.log(sumToRecursion(100))
+
+const sumToArithmeticProgression = (n: number): number => {
+    return (n * (n + 1)) / 2;
+};
+console.log(sumToArithmeticProgression(100))
+
+
+
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
 
 // just a plug
-export default () => {};
+export default () => {
+};
