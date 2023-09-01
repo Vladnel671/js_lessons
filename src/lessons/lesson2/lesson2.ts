@@ -216,6 +216,30 @@ function printListRecursion(list: objType): void {
 printListRecursion(list)
 printList(list);
 
+//task 5.5:
+
+function printListRecursionReverse(list: objType | null): void {
+    if (list) {
+        printListRecursionReverse(list.next);
+        console.log(list.value);
+    }
+}
+printListRecursionReverse(list)
+
+function printReverseList(list: objType | null) {
+    let arr = [];
+    let tmp = list;
+
+    while (tmp) {
+        arr.push(tmp.value);
+        tmp = tmp.next;
+    }
+
+    for (let i = arr.length - 1; i >= 0; i--) {
+        console.log( arr[i] );
+    }
+}
+printReverseList(list)
 
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
