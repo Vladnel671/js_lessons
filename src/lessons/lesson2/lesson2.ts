@@ -159,7 +159,7 @@ console.log(factorial(5))
 
 //task 5.3:
 
-const fib = (n:number) => {
+const fib = (n: number) => {
     if (n < 2) {
         return n;
     }
@@ -208,7 +208,7 @@ const list = {
 
 function printListRecursion(list: objType): void {
     console.log(list.value)
-    if(list.next){
+    if (list.next) {
         printListRecursion(list.next)
     }
 }
@@ -224,6 +224,7 @@ function printListRecursionReverse(list: objType | null): void {
         console.log(list.value);
     }
 }
+
 printListRecursionReverse(list)
 
 function printReverseList(list: objType | null) {
@@ -236,13 +237,25 @@ function printReverseList(list: objType | null) {
     }
 
     for (let i = arr.length - 1; i >= 0; i--) {
-        console.log( arr[i] );
+        console.log(arr[i]);
     }
 }
+
 printReverseList(list)
 
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
+
+function deepFlat(arr: any[]): any[] {
+    return arr.reduce((acc: any[], val: any) => {
+        if (Array.isArray(val)) {
+            return acc.concat(deepFlat(val));
+        }
+        return acc.concat(val);
+    }, []);
+}
+
+console.log(deepFlat([32, 67, [343, 1, 86, 34, [76, 7]]]))
 
 // just a plug
 export default () => {
