@@ -148,14 +148,40 @@ const sumToArithmeticProgression = (n: number): number => {
 console.log(sumToArithmeticProgression(100))
 
 //task 5.2:
-const factorial = (n: number): number=> {
-    if(n > 1) {
-        return n * factorial(n-1)!
+const factorial = (n: number): number => {
+    if (n > 1) {
+        return n * factorial(n - 1)!
     } else {
         return 1
     }
 }
 console.log(factorial(5))
+
+//task 5.3:
+
+const fib = (n:number) => {
+    if (n < 2) {
+        return n;
+    }
+
+    let prevPrev = 0;
+    let prev = 1;
+    let current = 0;
+
+    for (let i = 2; i <= n; i++) {
+        current = prev + prevPrev;
+        prevPrev = prev;
+        prev = current;
+    }
+
+    return current;
+};
+console.log(fib(77))
+
+//task 5.4
+
+
+
 
 // Task 06
 // написать функцию, которая повторяет функционал метода flat массива на всю глубину.
