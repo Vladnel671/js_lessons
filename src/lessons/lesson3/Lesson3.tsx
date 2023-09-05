@@ -10,12 +10,26 @@ const Lesson3 = () => {
 
     const searchFilm = () => {
         API.searchFilmsByTitle(searchName)
+            .then((result) => {
+                setSerachResult(result);
+            })
+            .catch((error) => {
+                console.error('Error searching films by name:', error);
+                setSerachResult('Error occurred while searching films by name.');
+            });
     };
 
     const searchByType = (e: React.MouseEvent<HTMLButtonElement>) => {
         const type: string = e.currentTarget.dataset.t ? e.currentTarget.dataset.t : '';
         API.searchFilmsByType(searchNameByType, type)
-    }
+            .then((result) => {
+                setSerachResultByType(result);
+            })
+            .catch((error) => {
+                console.error('Error searching films by type:', error);
+                setSerachResultByType('Error occurred while searching films by type.');
+            });
+    };
 
     return (
         <div>
