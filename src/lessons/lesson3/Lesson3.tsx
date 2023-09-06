@@ -4,18 +4,18 @@ import './lesson_3';
 
 const Lesson3 = () => {
     const [searchName, setSearchName] = useState('');
-    const [serachResult, setSerachResult] = useState('');
+    const [searchResult, setSearchResult] = useState('');
     const [searchNameByType, setSearchNameByType] = useState('');
-    const [serachResultByType, setSerachResultByType] = useState('');
+    const [searchResultByType, setSearchResultByType] = useState('');
 
     const searchFilm = () => {
         API.searchFilmsByTitle(searchName)
             .then((result) => {
-                setSerachResult(result);
+                setSearchResult(result);
             })
             .catch((error) => {
                 console.error('Error searching films by name:', error);
-                setSerachResult('Error occurred while searching films by name.');
+                setSearchResult('Error occurred while searching films by name.');
             });
     };
 
@@ -23,11 +23,11 @@ const Lesson3 = () => {
         const type: string = e.currentTarget.dataset.t ? e.currentTarget.dataset.t : '';
         API.searchFilmsByType(searchNameByType, type)
             .then((result) => {
-                setSerachResultByType(result);
+                setSearchResultByType(result);
             })
             .catch((error) => {
                 console.error('Error searching films by type:', error);
-                setSerachResultByType('Error occurred while searching films by type.');
+                setSearchResultByType('Error occurred while searching films by type.');
             });
     };
 
@@ -39,7 +39,7 @@ const Lesson3 = () => {
                 <input type="text" value={searchName} onChange={(e) => setSearchName(e.currentTarget.value)}/>
                 <button onClick={searchFilm}>Search</button>
                 <div>
-                    {serachResult}
+                    {searchResult}
                 </div>
             </div>
 
@@ -49,7 +49,7 @@ const Lesson3 = () => {
                 <button onClick={searchByType} data-t='movie'>Movie</button>
                 <button onClick={searchByType} data-t='series'>Series</button>
                 <div>
-                    {serachResultByType}
+                    {searchResultByType}
                 </div>
             </div>
         </div>
