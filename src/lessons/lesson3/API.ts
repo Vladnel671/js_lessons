@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const configOMB = {
-    baseURL: 'http://www.omdbapi.com',
+    baseURL: 'http://www.omdbapi.com/',
 };
 const key = '38770e66';
 const axiosInstance = axios.create(configOMB);
