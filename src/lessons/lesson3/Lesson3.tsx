@@ -51,7 +51,7 @@ const Lesson3: React.FC = () => {
                     {searchResult && 'Title' in searchResult && (
                         <div>
                             <h4>{searchResult.Title}</h4>
-                            <img style={{width:200}} src={searchResult.Poster} alt={searchResult.Title}/>
+                            <img style={{width: 200}} src={searchResult.Poster} alt={searchResult.Title}/>
                             <p>Year: {searchResult.Year}</p>
                         </div>
                     )}
@@ -69,7 +69,7 @@ const Lesson3: React.FC = () => {
                     {searchResultByType && 'Title' in searchResultByType && (
                         <div>
                             <h4>{searchResultByType.Title}</h4>
-                            <img style={{width:200}} src={searchResultByType.Poster} alt={searchResultByType.Title}/>
+                            <img style={{width: 200}} src={searchResultByType.Poster} alt={searchResultByType.Title}/>
                             <p>Year: {searchResultByType.Year}</p>
                         </div>
                     )}

@@ -14,6 +14,18 @@ console.log('lesson 3');
 
 // https://jsonplaceholder.typicode.com/posts/1
 // https://habr.com/ru/company/oleg-bunin/blog/417461/?_ga=2.54695343.543933152.1602500664-1040035071.1596811661
+import axios from 'axios';
+
+const apiKey = '38770e66';
+
+// Пример запроса фильма по названию
+axios.get(`http://www.omdbapi.com/?apikey=${apiKey}&t=The+Matrix`)
+    .then(response => {
+        console.log('Response:', response.data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
 // just a plug
 export default () => {
