@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import API from './API';
+import {getRequest, postRequest} from "./lesson_3";
 
 interface SearchResult {
     Title: string;
@@ -39,7 +40,7 @@ const Lesson3: React.FC = () => {
                 setSearchResultByType({error: 'Error occurred while searching films by type.'});
             });
     };
-
+    postRequest()
     return (
         <div>
             <h1>Promises</h1>
