@@ -40,3 +40,19 @@ export const postRequest = () => {
             console.error('Error:', error);
         });
 };
+
+export const putRequest = () => {
+    const data = {
+        title: 'Updated Title',
+        body: 'Updated body content',
+        userId: 1
+    };
+
+    axios.put('https://jsonplaceholder.typicode.com/posts/1', data)
+        .then(response => {
+            console.log('Response:', response.data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+};
