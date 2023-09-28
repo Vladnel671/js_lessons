@@ -20,6 +20,13 @@ setTimeout(() => {
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
 
+const p2 = new Promise((resolve, reject) => {
+    resolve("Promise Data")
+})
+
+p2.then((data) => {
+    console.log(data)
+})
 
 // Task 03
 // Создайте промис, который после создания сразу же переходит в состояние rejected
@@ -63,6 +70,6 @@ setTimeout(() => {
 // и выведите в консоль {name, age, city}
 
 
-
 // just a plug
-export default ()=>{};
+export default () => {
+};
