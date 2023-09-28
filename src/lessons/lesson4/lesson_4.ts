@@ -33,6 +33,13 @@ p2.then((data) => {
 // и возвращает строку 'Promise Error'
 // Получите данные промиса и выведите их в консоль
 
+const p3 = new Promise((resolve, reject) => {
+    reject("Promise Error")
+})
+
+p3.catch((error) => {
+    console.log(error)
+})
 
 // Task 04
 // Создайте промис, который переходит в состояние resolved через 3с.
