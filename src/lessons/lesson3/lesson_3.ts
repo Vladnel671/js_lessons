@@ -56,7 +56,6 @@ export const putRequest = () => {
             console.error('Error:', error);
         });
 };
-
 export const deleteRequest = () => {
     axios.delete('https://jsonplaceholder.typicode.com/posts/1')
         .then(response => {
