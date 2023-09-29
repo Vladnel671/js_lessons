@@ -97,6 +97,26 @@ export const handlePromise: IHandlePromise = {
 // Создайте функцию print, которая выводит в консоль значение своего параметра
 // Добавьте два метода then и передайте созданные функции.
 
+const p6 = new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("My name is");
+        }, 1000);
+    });
+
+const onSuccess = (param: any) => {
+    return param + " Vlad"
+}
+
+const print = (param2: any) => {
+    console.log(param2)
+    return param2
+}
+
+Promise.all([p6.then(onSuccess), p6.then(print)])
+    .then(([result1, result2]) => {
+        console.log(result1);
+        console.log(result2);
+    });
 
 // Task 7
 // Создайте три промиса. Первый промис возвращает объект { name: "Anna" } через 2с,
