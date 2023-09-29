@@ -98,10 +98,10 @@ export const handlePromise: IHandlePromise = {
 // Добавьте два метода then и передайте созданные функции.
 
 const p6 = new Promise((resolve) => {
-        setTimeout(() => {
-            resolve("My name is");
-        }, 1000);
-    });
+    setTimeout(() => {
+        resolve("My name is");
+    }, 1000);
+});
 
 const onSuccess = (param: any) => {
     return param + " Vlad"
@@ -123,6 +123,33 @@ Promise.all([p6.then(onSuccess), p6.then(print)])
 // второй промис возвращает объект {age: 16} через 3 с, а третий {city: ''} через 4с.
 // Получите результаты работы промисов, объедините свойства объектов
 // и выведите в консоль {name, age, city}
+
+const promise1: Promise<{ name: string }> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve({name: "Anna"});
+    }, 2000);
+});
+
+const promise2: Promise<{ age: number }> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve({age: 16});
+    }, 3000);
+});
+
+const promise3: Promise<{ city: string }> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve({city: ''});
+    }, 4000);
+});
+
+Promise.all([promise1, promise2, promise3])
+    .then(([result1, result2, result3]: [{ name: string }, { age: number }, { city: string }]) => {
+        const mergedResult = {...result1, ...result2, ...result3};
+        console.log(mergedResult);
+    })
+    .catch(error => {
+        console.error("An error occurred:", error);
+    });
 
 
 // just a plug
