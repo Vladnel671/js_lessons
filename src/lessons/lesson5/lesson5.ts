@@ -33,7 +33,7 @@ type someObjType = {
 let someObj = {
     name: 'Eugene',
     age: 32,
-    greeting: function() {
+    greeting: function () {
         return `My name is ${this.name}. I am ${this.age}.`;
     }
 };
@@ -48,6 +48,36 @@ console.log(someObj.greeting());
 // set current count; - принимает и присваивает значение счетчику
 // rest current count - устанавливает значение счетчика равным 0
 // все методы должны ссылаться на сам объект
+
+const counter = {
+    count: 0,
+    get_current_count: function () {
+        return `текущее значение счетчика: ${this.count}`;
+    },
+    increment: function () {
+        this.count = this.count + 1;
+        return this.count;
+    },
+    decrement: function () {
+        this.count = this.count - 1;
+        return this.count;
+    },
+    set_current_count: function (num: number) {
+        this.count = num;
+        return this.count
+    },
+    reset_current_count: function () {
+        this.count = 0;
+        return this.count
+    }
+}
+
+console.log(counter.increment())
+console.log(counter.decrement())
+console.log(counter.set_current_count(7))
+console.log(counter.reset_current_count())
+console.log(counter.count)
+
 
 // Task 03
 // переделайте код из Task 02, что бы сработал следующий код:
