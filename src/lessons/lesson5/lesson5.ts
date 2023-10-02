@@ -83,6 +83,31 @@ console.log(counter.count)
 // переделайте код из Task 02, что бы сработал следующий код:
 // counter.setCurrentCount(10).increment().increment().increment().decrement().getCurrentCount() // 12
 
+const counter2 = {
+    count: 0,
+    getCurrentCount: function () {
+        return this.count;
+    },
+    increment: function () {
+        this.count = this.count + 1;
+        return this;
+    },
+    decrement: function () {
+        this.count = this.count - 1;
+        return this;
+    },
+    setCurrentCount: function (num:number) {
+        this.count = num;
+        return this;
+    },
+    resetCurrentCount: function () {
+        this.count = 0;
+        return this;
+    }
+};
+
+console.log(counter2.setCurrentCount(10).increment().increment().increment().decrement().getCurrentCount());
+
 // Task 04
 // Написать функцию конструктор myFirstConstructorFunc которая принимает 2 параметра name и age и возвращает объект
 // у которого будут эти свойства и метод greeting из Task 01
