@@ -112,6 +112,27 @@ console.log(counter2.setCurrentCount(10).increment().increment().increment().dec
 // Написать функцию конструктор myFirstConstructorFunc которая принимает 2 параметра name и age и возвращает объект
 // у которого будут эти свойства и метод greeting из Task 01
 
+class Person {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greeting() {
+        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+    }
+}
+
+function myFirstConstructorFunc(name: string, age: number): Person {
+    return new Person(name, age);
+}
+
+const person = myFirstConstructorFunc("John", 25);
+person.greeting();
+
 // Task 05 есть 2 объекта One и Two. С помощью bind и метода sayHello заставьте поздороваться объект One
 
 let One = {name: 'One'};
@@ -129,6 +150,23 @@ sayHelloOne()
 // setAge - устанавливает полученное значение в свойство age объекта
 // greeting - используется функция sayHello из Task 05
 // можно использовать @ts-ignore
+
+//@ts-ignore
+const helperObj = {
+    name: '',
+    age: 0,
+    changeName: function(newName:string) {
+        this.name = newName;
+    },
+    setAge: function(newAge: number) {
+        this.age = newAge;
+    },
+    greeting: function() {
+        //@ts-ignore
+        sayHelloOne();
+    }
+};
+
 
 // Bind
 // 1) Дана функция sumTwoNumbers, реализовать функцию bindNumber которая принимает функцию sumTwoNumbers и число, и
